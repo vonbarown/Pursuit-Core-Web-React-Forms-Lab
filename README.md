@@ -1,3 +1,15 @@
+# Pursuit-Core-Web-Forms-Lab
+
+Build a React app that has the following functionality:
+
+- An input where the user can enter the values in an array
+- A select to choose between calculating the sum, the average, and the mode (most frequently occurring number)
+- A calculate button
+
+![reactFormsLab](./reactFormsLab.gif)
+
+# Create React App Boilerplate
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
