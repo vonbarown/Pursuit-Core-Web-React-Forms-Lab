@@ -5,13 +5,14 @@ class App extends React.Component {
   constructor() {
     super()
     this.initialState = {
-      userInput: '',
-      array: [],
+      userInput:'',
+      result:0,
       method: ''
     }
-
     this.state = this.initialState
   }
+
+  handleSubmit = (event) => event.preventDefault();
 
   handleInput = (event) => {
     this.setState({
@@ -25,14 +26,31 @@ class App extends React.Component {
     })
   }
 
+  math = (event) => {
+    const {userInput, method,result } = this.state
+    let array =userInput.split('')
+    console.log(array);
+    let answer = 0;
+    if (method === 'add') {
+      for (let i = 0; i < array.length - 1; i++){
+        answer += Number(i)
+        this.setState({
+          result:answer
+        })
+      }      
+    }
+}
+
+
+
+
   render() {
     const { userInput, method } = this.state
-    console.log(this.state);
-
+    console.log(this.state.result);
 
     return (
       <div className="App">
-        <form action="">
+        <form onSubmit={this.handleSubmit}>
           <h1>Simple Calculator</h1>
           <input type="number"
             value={userInput}
@@ -44,6 +62,8 @@ class App extends React.Component {
             <option value='average'>average</option>
             <option value='mode'>mode</option>
           </select>
+
+          <button onClick={this.math}>Calculate</button>
         </form>
       </div>
     );
